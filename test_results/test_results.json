@@ -1,0 +1,106 @@
+[
+    {
+        "test_file_name": "test_expect_discount_percent.json",
+        "test_description": "The push notification is regarding the show \"Back to the Future,\" where regular tickets are priced as low as $63. A new maximum discount percentage of 29% has been introduced.",
+        "original_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Back to the Future now has a 29% discount on tickets. Don't miss out on this exciting offer!\"\n}",
+        "second_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Back to the Future tickets now as low as $63 with a 29% discount. Don't miss out!\"\n}",
+        "third_agent_result": "{\n\"title\": \"New discount\",\n\"body\": \"Great Scott! \\\"Back to the Future\\\" now offers up to 29% off. Don't miss your chance to travel through time with this amazing offer!\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Experience Back to the Future with an exciting 29% off! Don't miss this chance to enjoy the show at a new low price of $63. Book your tickets now!\"\n}"
+    },
+    {
+        "test_file_name": "test_low_price_discount_promo_mj.json",
+        "test_description": "The show \"MJ The Musical\" has a promotion titled \"Cyber Sale\" offering limited-time savings. The new lowest price for regular tickets is $89, with a $5 decrease from the previous price. The maximum discount amount available is $25, which is a $7 increase from before. The promotion includes a maximum discount percentage of 30%.",
+        "original_agent_result": "{\n  \"title\": \"New low price\",\n  \"body\": \"MJ The Musical now has tickets starting at just $89! Enjoy the Cyber Sale with limited time savings available now.\"\n}",
+        "second_agent_result": "{\n  \"title\": \"Cyber Sale savings\",\n  \"body\": \"MJ The Musical now has tickets starting at $89! Enjoy up to $25 off with a 30% discount. Don't miss out!\"\n}",
+        "third_agent_result": "{\n\"title\": \"New discount\",\n\"body\": \"Exciting news for MJ The Musical fans! Enjoy up to 30% off tickets with our Cyber Sale. Act fast, this offer won't last!\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"New low price\",\n  \"body\": \"MJ The Musical tickets now start at just $89 during our Cyber Sale. Limited time savings available now.\"\n}"
+    },
+    {
+        "test_file_name": "test_breaking_news.json",
+        "test_description": "\"Harry Potter and the Cursed Child\" will debut a new version on Broadway at the Lyric Theatre starting November 12. The play, which originally opened in New York in 2018 as a two-part, five-hour production, was revised in 2021 to a one-part, 3.5-hour show. The upcoming 2024 version will run under three hours, including one intermission. The new cast includes Matthew James Thomas as Harry Potter, Sarah Killough as Ginny Potter, and Alex Serino as Albus Potter, among others. The story, written by Jack Thorne and based on an original story by Thorne, J.K. Rowling, and John Tiffany, follows Albus Potter and Scorpius Malfoy on a time-traveling adventure. Regular ticket prices start at $63.",
+        "original_agent_result": "{\n  \"title\": \"Harry Potter news\",\n  \"body\": \"Exciting changes for Harry Potter and the Cursed Child! A new version debuts on Broadway from November 12, featuring a shorter runtime and a fresh cast. Don't miss this magical update!\"\n}",
+        "second_agent_result": "{\n  \"title\": \"Harry Potter update\",\n  \"body\": \"Experience the new version of 'Harry Potter and the Cursed Child' on Broadway! Starting Nov 12, enjoy a streamlined show under 3 hours with a fresh cast. Tickets from $63.\"\n}",
+        "third_agent_result": "{\n\"title\": \"Harry Potter update\",\n\"body\": \"Exciting news! \\\"Harry Potter and the Cursed Child\\\" is debuting a new version on Broadway. Catch the revamped show under 3 hours starting November 12.\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"Harry Potter news\",\n  \"body\": \"A new version of 'Harry Potter and the Cursed Child' debuts on Broadway Nov 12. Experience the magic in under 3 hours!\"\n}"
+    },
+    {
+        "test_file_name": "test_shubert_no_discount_percent.json",
+        "test_description": "The show \"& Juliet\" has a low price for regular tickets set at $63. The maximum discount amount has increased by $22, bringing it to a new total of $85. Additionally, the maximum discount percentage has increased by 10%, now reaching 66%.",
+        "original_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Experience & Juliet with an incredible $85 off. Don't miss out on this amazing offer!\"\n}",
+        "second_agent_result": "{\n  \"title\": \"New low price\",\n  \"body\": \"Experience & Juliet with tickets now starting at just $63! Enjoy a massive discount of up to $85, with a new maximum savings of 66%.\"\n}",
+        "third_agent_result": "{\n\"title\": \"New discount\",\n\"body\": \"Exciting news for & Juliet fans! Enjoy up to $85 off with a new maximum discount of 66%. Don't miss out on this incredible offer!\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"New discount for & Juliet\",\n  \"body\": \"Enjoy up to $85 off on & Juliet tickets with a new 66% discount. Don't miss out on this fantastic offer!\"\n}"
+    },
+    {
+        "test_file_name": "test_cast_change_article.json",
+        "test_description": "Adam Lambert and Auli'i Cravalho will join the Broadway cast of \"Cabaret\" starting September 16 at the August Wilson Theatre. Lambert, known for his role as the runner-up on American Idol and his collaboration with Queen, will play the Emcee. Cravalho, famous for voicing Moana and starring in the film adaptation of \"Mean Girls,\" will portray Sally Bowles. They replace Eddie Redmayne and Gayle Rankin, who originated these roles in the Tony Award-nominated revival, through September 14. Lambert and Cravalho will perform until March 30, 2025. The cast also features Bebe Neuwirth, Steven Skybell, Ato Blankson-Wood, Natascia Diaz, and Henry Gottfried. The musical, set in 1930s Berlin, is directed by Rebecca Frecknall and offers a semi-immersive experience at the Kit Kat Club. Regular ticket prices start at $63.",
+        "original_agent_result": "{\n  \"title\": \"Cabaret news\",\n  \"body\": \"Adam Lambert and Auli'i Cravalho join Cabaret on Broadway starting September 16. Don't miss their debut!\"\n}",
+        "second_agent_result": "{\n  \"title\": \"Cabaret news\",\n  \"body\": \"Adam Lambert and Auli'i Cravalho join Cabaret on September 16 at the August Wilson Theatre. Don't miss this star-studded cast!\"\n}",
+        "third_agent_result": "{\n\"title\": \"Cabaret news\",\n\"body\": \"Exciting update for Cabaret fans! Adam Lambert and Auli'i Cravalho are joining the Broadway cast starting September 16. Don't miss their debut at the August Wilson Theatre.\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"Cabaret news\",\n  \"body\": \"Adam Lambert and Auli'i Cravalho are joining the Broadway cast of Cabaret starting September 16. Don't miss their debut at the August Wilson Theatre!\"\n}"
+    },
+    {
+        "test_file_name": "test_discount_percent_only_juliet.json",
+        "test_description": "The show \"& Juliet\" has regular tickets starting at $59. There is a new maximum discount percentage of 71%, which is an increase of 8%.",
+        "original_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Experience & Juliet with an amazing 71% off! Don't miss out on this incredible offer.\"\n}",
+        "second_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Exciting news! & Juliet now offers a maximum discount of 71% on regular tickets, starting at just $59. Don't miss out!\"\n}",
+        "third_agent_result": "{\n\"title\": \"New discount\",\n\"body\": \"Experience the magic of & Juliet with an incredible 71% off! Don't miss out on this amazing opportunity to see the show at a fraction of the price.\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Experience & Juliet with an incredible 71% off! Don't miss out on this amazing offer.\"\n}"
+    },
+    {
+        "test_file_name": "test_24_hour_offer.json",
+        "test_description": "The show \"The Hills of California\" has a new lowest ticket price of $50, which is a $3 decrease. There is a \"24 Hour\" promotion with a \"24-hour offer\" message. This promotion is targeted at Gold members.",
+        "original_agent_result": "{\n  \"title\": \"24 hour offer\",\n  \"body\": \"Gold members, enjoy a new low price of $50 for The Hills of California with our 24-hour offer!\"\n}",
+        "second_agent_result": "{\n  \"title\": \"24 hour offer\",\n  \"body\": \"Gold members, enjoy the new lowest ticket price of $50 for The Hills of California. Don't miss out on this 24-hour promotion!\"\n}",
+        "third_agent_result": "{\n\"title\": \"New low price\",\n\"body\": \"Gold members, experience \\\"The Hills of California\\\" with a new low price of just $50! This exclusive 24-hour offer is your chance to enjoy the show at an unbeatable rate.\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"24 hour offer\",\n  \"body\": \"Gold members, enjoy new low prices on The Hills of California tickets at just $50 for the next 24 hours!\"\n}"
+    },
+    {
+        "test_file_name": "test_promo_only_moulin_rouge.json",
+        "test_description": "\"Moulin Rouge! The Musical\" has a promotion titled \"Great value seats\" with a message indicating that these seats are available at highlighted performances. The lowest price for regular tickets is \u00a328, and there is an option to show a discount percentage.",
+        "original_agent_result": "{\n  \"title\": \"Great value seats\",\n  \"body\": \"Moulin Rouge! The Musical now has great value seats available at highlighted performances. Don't miss out on this amazing offer!\"\n}",
+        "second_agent_result": "{\n  \"title\": \"Great value seats\",\n  \"body\": \"Experience Moulin Rouge! The Musical with tickets starting at just \u00a328 for highlighted performances. Don't miss out on this fantastic offer!\"\n}",
+        "third_agent_result": "{\n\"title\": \"New low price\",\n\"body\": \"Experience the magic of Moulin Rouge! The Musical with new low prices starting at just \u00a328. Great value seats are now available for select performances. Don't miss out on this spectacular offer!\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"New low price\",\n  \"body\": \"Moulin Rouge! The Musical now has great value seats starting at \u00a328. Don't miss out on this offer!\"\n}"
+    },
+    {
+        "test_file_name": "test_closing_announced.json",
+        "test_description": "The show \"Wicked\" is announcing its closing on January 1, 2026, after starting on October 30, 2003, in the US. Regular ticket prices start at $50, and there is a possibility of showing a discount percentage.",
+        "original_agent_result": "{\n  \"title\": \"Wicked closing soon\",\n  \"body\": \"Don't miss your chance to see Wicked before it closes on January 1, 2026. Secure your tickets now!\"\n}",
+        "second_agent_result": "{\n  \"title\": \"Wicked closing news\",\n  \"body\": \"Don't miss your chance to see Wicked before it closes on January 1, 2026. Tickets start at just $50!\"\n}",
+        "third_agent_result": "{\n\"title\": \"See Wicked before it ends\",\n\"body\": \"With Wicked closing on January 1, 2026, now's your chance to see this iconic show. Tickets start at just $50!\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"Wicked news\",\n  \"body\": \"Don't miss your chance to see Wicked before it closes on January 1, 2026. Secure your tickets now for as low as $50!\"\n}"
+    },
+    {
+        "test_file_name": "test_lehman_exclusive.json",
+        "test_description": "The show \"The Lehman Trilogy\" now has a new lowest price for regular tickets at \u00a323, which is a \u00a35 reduction. There is an exclusive pricing promotion with highlighted dates offering TodayTix exclusive prices.",
+        "original_agent_result": "{\n  \"title\": \"New low price\",\n  \"body\": \"The Lehman Trilogy now starts at \u00a323 with Exclusive pricing. Check highlighted dates for TodayTix exclusive prices.\"\n}",
+        "second_agent_result": "{\n  \"title\": \"New low price\",\n  \"body\": \"The Lehman Trilogy now has tickets at just \u00a323! Enjoy exclusive pricing on highlighted dates with TodayTix.\"\n}",
+        "third_agent_result": "{\n\"title\": \"Exclusive pricing\",\n\"body\": \"\\\"The Lehman Trilogy\\\" now available for just \u00a323! Check out our exclusive pricing on highlighted dates. Secure your tickets today!\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"New low price\",\n  \"body\": \"The Lehman Trilogy now has tickets starting at \u00a323 with Exclusive pricing. Check highlighted dates for TodayTix exclusive prices!\"\n}"
+    },
+    {
+        "test_file_name": "test_promo_only_mousetrap.json",
+        "test_description": "The show \"The Mousetrap\" has regular ticket prices starting at \u00a328. A promotion titled \"Tix Selling Fast\" has been added, indicating that tickets are selling quickly, with the lowest price point for this promotion being \u00a335.",
+        "original_agent_result": "{\n  \"title\": \"Tix Selling Fast\",\n  \"body\": \"Catch The Mousetrap with prices starting at \u00a328. Don't miss out!\"\n}",
+        "second_agent_result": "{\n  \"title\": \"Tix Selling Fast\",\n  \"body\": \"Tickets for The Mousetrap are selling quickly with prices starting at \u00a335. Don't miss out!\"\n}",
+        "third_agent_result": "{\n\"title\": \"New low price\",\n\"body\": \"Great news! \\\"The Mousetrap\\\" tickets are now available at a new low price of \u00a328. Don't miss out on the Tix Selling Fast promotion.\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"New low price\",\n  \"body\": \"Catch The Mousetrap with tickets now starting at just \u00a335! Don't miss out with our 'Tix Selling Fast' promotion.\"\n}"
+    },
+    {
+        "test_file_name": "test_gold_promo_discount_only.json",
+        "test_description": "The show \"Why Am I So Single?\" offers regular tickets starting at \u00a325. A new promotion has been introduced, allowing a maximum discount of 40%, which is an increase of 7% from the previous maximum discount. Additionally, there is a special offer with the lowest price point set at \u00a330. These promotions are targeted at Gold Members.",
+        "original_agent_result": "{\n  \"title\": \"Gold member exclusive\",\n  \"body\": \"Gold Members, enjoy a 40% off on Why Am I So Single? with our Special offer. Don't miss out!\"\n}",
+        "second_agent_result": "{\n  \"title\": \"Gold member exclusive\",\n  \"body\": \"Why Am I So Single? now offers up to 40% off for Gold Members. Grab your tickets starting at just \u00a325!\"\n}",
+        "third_agent_result": "{\n\"title\": \"New discount\",\n\"body\": \"Gold Members, enjoy a special offer with up to 40% off on \\\"Why Am I So Single?\\\". Don't miss this exclusive opportunity to see the show at a great price!\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"Gold member exclusive\",\n  \"body\": \"Why Am I So Single? now has a 40% discount with our Special offer. Enjoy tickets from just \u00a330!\"\n}"
+    },
+    {
+        "test_file_name": "test_promotion_only.json",
+        "test_description": "The show \"Six\" has regular ticket prices starting at $59. A promotion titled \"Hot deal\" has been added, highlighting dates with special offers. The promotion includes a lowest price point of $59, a maximum discount amount of $22, and a maximum discount percentage of 45%.",
+        "original_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Experience Six with up to 45% off! Check out the Hot deal for the best offers on highlighted dates.\"\n}",
+        "second_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Experience 'Six' with the 'Hot deal' promotion! Enjoy up to 45% off with prices starting at just $59. Don't miss out on these special offers!\"\n}",
+        "third_agent_result": "{\n\"title\": \"Six: 45% off\",\n\"body\": \"Get ready for a royal experience with \\\"Six\\\" at an incredible 45% off. Check out the Hot deal dates now!\"\n}",
+        "context_original_agent_result": "{\n  \"title\": \"New discount\",\n  \"body\": \"Experience Six with up to 45% off! Check out our Hot deal promotion for the best offers.\"\n}"
+    }
+]
