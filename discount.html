@@ -87,1210 +87,1144 @@
 
         // Test data
         const testData = {
-            "results": [
-                {
-                  "testName": "test a case where low price has not changed but max discount percentage has",
-                  "testDescription": "The push notification is regarding the show \"Back to the Future,\" where regular tickets are priced as low as $63. A new maximum discount percentage of 29% has been introduced.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "Back to the Future",
-                        "body": "Get tickets now for as low as $63.",
-                        "inAppMessage": "Back to the Future tickets now from $63",
-                        "usage": {
-                          "prompt_tokens": 897,
-                          "completion_tokens": 110,
-                          "total_tokens": 1007
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match and % symbol not shown.",
-                        "usage": {
-                          "prompt_tokens": 307,
-                          "completion_tokens": 10,
-                          "total_tokens": 317
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Back to the Future",
-                        "body": "Enjoy tickets now at a new low price of $63.",
-                        "inAppMessage": "Back to the Future: Tickets from $63 now!",
-                        "usage": {
-                          "prompt_tokens": 897,
-                          "completion_tokens": 112,
-                          "total_tokens": 1009
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Price matches lowPriceForRegularTickets, % symbol not required.",
-                        "usage": {
-                          "prompt_tokens": 309,
-                          "completion_tokens": 15,
-                          "total_tokens": 324
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Back to the Future",
-                        "body": "Get tickets now from $63 while inventory lasts.",
-                        "inAppMessage": "Back to the Future tix now from $63.",
-                        "usage": {
-                          "prompt_tokens": 897,
-                          "completion_tokens": 117,
-                          "total_tokens": 1014
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match and % symbol not required.",
-                        "usage": {
-                          "prompt_tokens": 307,
-                          "completion_tokens": 10,
-                          "total_tokens": 317
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test NYC case where there is a promotion, max discount amount and low price",
-                  "testDescription": "The show \"MJ The Musical\" has a promotion titled \"Cyber Sale\" offering limited-time savings. The new lowest price for regular tickets is $89, with a $5 decrease from the previous price. The maximum discount amount available is $25, which is a $7 increase from before. The promotion includes a maximum discount percentage of 30%.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "MJ The Musical",
-                        "body": "Don't miss out! MJ The Musical tickets start at just $89.",
-                        "inAppMessage": "MJ The Musical now from $89. Act fast!",
-                        "usage": {
-                          "prompt_tokens": 1059,
-                          "completion_tokens": 108,
-                          "total_tokens": 1167
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: All numbers match source data, $89 is the low price.",
-                        "usage": {
-                          "prompt_tokens": 472,
-                          "completion_tokens": 15,
-                          "total_tokens": 487
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "MJ The Musical",
-                        "body": "Cyber Sale: Limited time savings available now. Tix from $89.",
-                        "inAppMessage": "MJ The Musical: Cyber Sale tix from $89.",
-                        "usage": {
-                          "prompt_tokens": 1059,
-                          "completion_tokens": 117,
-                          "total_tokens": 1176
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: All numbers match source data, and % symbol is correctly omitted.",
-                        "usage": {
-                          "prompt_tokens": 473,
-                          "completion_tokens": 15,
-                          "total_tokens": 488
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "MJ The Musical",
-                        "body": "Enjoy Cyber Sale offers with prices from $89.",
-                        "inAppMessage": "MJ The Musical: Cyber Sale offers w/prices from $89.",
-                        "usage": {
-                          "prompt_tokens": 1059,
-                          "completion_tokens": 115,
-                          "total_tokens": 1174
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Prices match source data, % symbol allowed.",
-                        "usage": {
-                          "prompt_tokens": 468,
-                          "completion_tokens": 11,
-                          "total_tokens": 479
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a case where a show has breaking news",
-                  "testDescription": "\"Harry Potter and the Cursed Child\" will debut a new version on Broadway at the Lyric Theatre starting November 12. The play, which originally opened in New York in 2018 as a two-part, five-hour production, was revised in 2021 to a one-part, 3.5-hour show. The upcoming 2024 version will run under three hours, including one intermission. The new cast includes Matthew James Thomas as Harry Potter, Sarah Killough as Ginny Potter, and Alex Serino as Albus Potter, among others. The story, written by Jack Thorne and based on an original story by Thorne, J.K. Rowling, and John Tiffany, follows Albus Potter and Scorpius Malfoy on a time-traveling adventure. Regular ticket prices start at $63.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "Harry Potter and the Cursed Child",
-                        "body": "Catch the new version debuting on Broadway from Nov 12, tickets start at $63.",
-                        "inAppMessage": "Harry Potter and the Cursed Child gets a new version, tix start at $63.",
-                        "usage": {
-                          "prompt_tokens": 1440,
-                          "completion_tokens": 145,
-                          "total_tokens": 1585
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Ticket price matches lowPriceForRegularTickets.",
-                        "usage": {
-                          "prompt_tokens": 862,
-                          "completion_tokens": 11,
-                          "total_tokens": 873
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Harry Potter and the Cursed Child",
-                        "body": "Experience the enchanting new version under 3 hours, starting Nov 12.",
-                        "inAppMessage": "Harry Potter and the Cursed Child is back with a new version under 3 hours.",
-                        "usage": {
-                          "prompt_tokens": 1440,
-                          "completion_tokens": 133,
-                          "total_tokens": 1573
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: No numbers or % symbols are present in the push notification.",
-                        "usage": {
-                          "prompt_tokens": 858,
-                          "completion_tokens": 14,
-                          "total_tokens": 872
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Harry Potter and the Cursed Child",
-                        "body": "Experience the new version of the show starting November 12 at Lyric Theatre. Tickets from $63.",
-                        "inAppMessage": "Harry Potter and the Cursed Child debuts a new version Nov 12 from $63",
-                        "usage": {
-                          "prompt_tokens": 1440,
-                          "completion_tokens": 151,
-                          "total_tokens": 1591
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Ticket price matches lowPriceForRegularTickets, no % symbol shown.",
-                        "usage": {
-                          "prompt_tokens": 864,
-                          "completion_tokens": 16,
-                          "total_tokens": 880
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a case where low price has not changed but max discount percentage has",
-                  "testDescription": "The show \"& Juliet\" has a low price for regular tickets set at $63. The maximum discount amount has increased by $22, bringing it to a new total of $85. Additionally, the maximum discount percentage has increased by 10%, now reaching 66%.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "& Juliet",
-                        "body": "Enjoy tickets starting at a new low price of $63.",
-                        "inAppMessage": "& Juliet: Tickets from $63.",
-                        "usage": {
-                          "prompt_tokens": 932,
-                          "completion_tokens": 100,
-                          "total_tokens": 1032
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches lowPriceForRegularTickets without % symbol.",
-                        "usage": {
-                          "prompt_tokens": 341,
-                          "completion_tokens": 12,
-                          "total_tokens": 353
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "& Juliet",
-                        "body": "Score tickets from $63.",
-                        "inAppMessage": "& Juliet from $63. Don't miss your chance.",
-                        "usage": {
-                          "prompt_tokens": 932,
-                          "completion_tokens": 97,
-                          "total_tokens": 1029
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: $63 matches lowPriceForRegularTickets, no % shown.",
-                        "usage": {
-                          "prompt_tokens": 335,
-                          "completion_tokens": 15,
-                          "total_tokens": 350
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "& Juliet",
-                        "body": "Get tix now from $63.",
-                        "inAppMessage": "& Juliet Get tix now from $63.",
-                        "usage": {
-                          "prompt_tokens": 932,
-                          "completion_tokens": 101,
-                          "total_tokens": 1033
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Price matches lowPriceForRegularTickets, no % shown.",
-                        "usage": {
-                          "prompt_tokens": 337,
-                          "completion_tokens": 14,
-                          "total_tokens": 351
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a case where a show has breaking news about a cast change",
-                  "testDescription": "Adam Lambert and Auli'i Cravalho will join the Broadway cast of \"Cabaret\" starting September 16 at the August Wilson Theatre. Lambert, known for his role as the runner-up on American Idol and his collaboration with Queen, will play the Emcee. Cravalho, famous for voicing Moana and starring in the film adaptation of \"Mean Girls,\" will portray Sally Bowles. They replace Eddie Redmayne and Gayle Rankin, who originated these roles in the Tony Award-nominated revival, through September 14. Lambert and Cravalho will perform until March 30, 2025. The cast also features Bebe Neuwirth, Steven Skybell, Ato Blankson-Wood, Natascia Diaz, and Henry Gottfried. The musical, set in 1930s Berlin, is directed by Rebecca Frecknall and offers a semi-immersive experience at the Kit Kat Club. Regular ticket prices start at $63.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "Cabaret",
-                        "body": "New cast alert: Adam Lambert and Auli'i Cravalho join Cabaret from Sept 16.",
-                        "inAppMessage": "Cabaret news: Adam Lambert and Auli'i Cravalho join this hit musical.",
-                        "usage": {
-                          "prompt_tokens": 1570,
-                          "completion_tokens": 142,
-                          "total_tokens": 1712
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Push notification matches JSON data.",
-                        "usage": {
-                          "prompt_tokens": 989,
-                          "completion_tokens": 8,
-                          "total_tokens": 997
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Cabaret",
-                        "body": "Adam Lambert and Auli'i Cravalho join the Broadway cast. Get tix from $63.",
-                        "inAppMessage": "Cabaret: Adam Lambert and Auli'i Cravalho join the cast. Tix from $63.",
-                        "usage": {
-                          "prompt_tokens": 1570,
-                          "completion_tokens": 139,
-                          "total_tokens": 1709
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Price matches lowPriceForRegularTickets, no % symbol shown.",
-                        "usage": {
-                          "prompt_tokens": 989,
-                          "completion_tokens": 15,
-                          "total_tokens": 1004
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Cabaret",
-                        "body": "Adam Lambert and Auli'i Cravalho join Cabaret Broadway cast from Sept 16!",
-                        "inAppMessage": "Cabaret update: Adam Lambert & Auli'i Cravalho join the cast!",
-                        "usage": {
-                          "prompt_tokens": 1570,
-                          "completion_tokens": 140,
-                          "total_tokens": 1710
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches show name and cast update without % symbol.",
-                        "usage": {
-                          "prompt_tokens": 987,
-                          "completion_tokens": 12,
-                          "total_tokens": 999
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a last call show alert for a show closing soon",
-                  "testDescription": "The show \"Wicked\" is closing soon, on January 1, 2026, after starting on October 30, 2003, in the US. Regular ticket prices start at $50, and there is a possibility of showing a discount percentage.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "Wicked",
-                        "body": "Don't miss out! Wicked is closing soon, get your tickets from $50.",
-                        "inAppMessage": "Wicked closing soon, tix from $50. Get yours now!",
-                        "usage": {
-                          "prompt_tokens": 895,
-                          "completion_tokens": 120,
-                          "total_tokens": 1015
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: All numbers and details match source data.",
-                        "usage": {
-                          "prompt_tokens": 309,
-                          "completion_tokens": 10,
-                          "total_tokens": 319
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Wicked",
-                        "body": "Don't miss Wicked, closing on Jan 1. Get tickets from $50.",
-                        "inAppMessage": "Wicked closing soon! Tix from $50.",
-                        "usage": {
-                          "prompt_tokens": 895,
-                          "completion_tokens": 109,
-                          "total_tokens": 1004
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: All numbers and details match source data.",
-                        "usage": {
-                          "prompt_tokens": 309,
-                          "completion_tokens": 10,
-                          "total_tokens": 319
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Wicked",
-                        "body": "Catch Wicked before it closes on Jan 1. Tickets from $50.",
-                        "inAppMessage": "Wicked closes soon. Tickets from $50.",
-                        "usage": {
-                          "prompt_tokens": 895,
-                          "completion_tokens": 109,
-                          "total_tokens": 1004
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match, % not shown, closing date correct.",
-                        "usage": {
-                          "prompt_tokens": 308,
-                          "completion_tokens": 13,
-                          "total_tokens": 321
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test uk case where there is a promotion only",
-                  "testDescription": "changes: promotion added (pay no fees), nothing else changes",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "Musicals by Candlelight: Andrew Lloyd Webber",
-                        "body": "Pay no fees and get tickets from £15.",
-                        "inAppMessage": "Musicals by Candlelight: Pay no fees, tix from £15.",
-                        "usage": {
-                          "prompt_tokens": 903,
-                          "completion_tokens": 127,
-                          "total_tokens": 1030
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match and % symbol not shown.",
-                        "usage": {
-                          "prompt_tokens": 322,
-                          "completion_tokens": 10,
-                          "total_tokens": 332
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Musicals by Candlelight: Andrew Lloyd Webber",
-                        "body": "Pay no fees on tickets from £15.",
-                        "inAppMessage": "Musicals by Candlelight: Andrew Lloyd Webber: Pay no fees on tickets from £15.",
-                        "usage": {
-                          "prompt_tokens": 903,
-                          "completion_tokens": 124,
-                          "total_tokens": 1027
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match and no % symbol shown.",
-                        "usage": {
-                          "prompt_tokens": 321,
-                          "completion_tokens": 10,
-                          "total_tokens": 331
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Musicals by Candlelight: Andrew Lloyd Webber",
-                        "body": "Enjoy Musicals by Candlelight: Andrew Lloyd Webber with our Pay No Fees offer. Tickets from £15.",
-                        "inAppMessage": "Musicals by Candlelight offer: pay no fees, tickets from £15!",
-                        "usage": {
-                          "prompt_tokens": 903,
-                          "completion_tokens": 142,
-                          "total_tokens": 1045
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match and no % symbol shown.",
-                        "usage": {
-                          "prompt_tokens": 335,
-                          "completion_tokens": 10,
-                          "total_tokens": 345
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a case where max discount percent changed, nothing else",
-                  "testDescription": "The show \"& Juliet\" has regular tickets starting at $59. There is a new maximum discount percentage of 71%, which is an increase of 8%.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "& Juliet",
-                        "body": "Get your tickets now from $59!",
-                        "inAppMessage": "& Juliet tickets now from $59!",
-                        "usage": {
-                          "prompt_tokens": 898,
-                          "completion_tokens": 99,
-                          "total_tokens": 997
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match, % symbol not required.",
-                        "usage": {
-                          "prompt_tokens": 303,
-                          "completion_tokens": 10,
-                          "total_tokens": 313
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "& Juliet",
-                        "body": "Get tickets now from $59 while they last.",
-                        "inAppMessage": "& Juliet tickets now from $59",
-                        "usage": {
-                          "prompt_tokens": 898,
-                          "completion_tokens": 96,
-                          "total_tokens": 994
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Price matches lowPriceForRegularTickets, no % symbol shown.",
-                        "usage": {
-                          "prompt_tokens": 305,
-                          "completion_tokens": 15,
-                          "total_tokens": 320
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "& Juliet",
-                        "body": "Get tickets now with a max discount. Prices from $59.",
-                        "inAppMessage": "& Juliet tickets now with a max discount prices from $59",
-                        "usage": {
-                          "prompt_tokens": 898,
-                          "completion_tokens": 107,
-                          "total_tokens": 1005
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Prices and discount match source data.",
-                        "usage": {
-                          "prompt_tokens": 308,
-                          "completion_tokens": 9,
-                          "total_tokens": 317
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a case where low price has changed slightly but there is a promotion",
-                  "testDescription": "The show \"The Hills of California\" has a new lowest ticket price of $50, which is a $3 decrease. There is a \"24 Hour\" promotion with a \"24-hour offer\" message. This promotion is targeted at Gold members.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "The Hills of California",
-                        "body": "Gold Members, 24-hour offer on tickets from $50.",
-                        "inAppMessage": "The Hills of California tickets from $50 for Gold Members.",
-                        "usage": {
-                          "prompt_tokens": 903,
-                          "completion_tokens": 121,
-                          "total_tokens": 1024
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches lowPriceForRegularTickets and no % symbol shown.",
-                        "usage": {
-                          "prompt_tokens": 316,
-                          "completion_tokens": 14,
-                          "total_tokens": 330
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "The Hills of California",
-                        "body": "Gold members, grab your tix now from $50 with our 24-hour offer.",
-                        "inAppMessage": "The Hills of California: Gold members get tix from $50.",
-                        "usage": {
-                          "prompt_tokens": 903,
-                          "completion_tokens": 130,
-                          "total_tokens": 1033
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: All numbers and details match source data.",
-                        "usage": {
-                          "prompt_tokens": 321,
-                          "completion_tokens": 10,
-                          "total_tokens": 331
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "The Hills of California",
-                        "body": "Exclusive 24-hour offer: Gold Member tickets now start from $50.",
-                        "inAppMessage": "The Hills of California Gold Member tix from $50.",
-                        "usage": {
-                          "prompt_tokens": 903,
-                          "completion_tokens": 126,
-                          "total_tokens": 1029
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches lowPriceForRegularTickets and mentions 24-hour offer.",
-                        "usage": {
-                          "prompt_tokens": 318,
-                          "completion_tokens": 15,
-                          "total_tokens": 333
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test uk case where there is a promotion only",
-                  "testDescription": "\"Moulin Rouge! The Musical\" has a promotion titled \"Great value seats\" with a message indicating that these seats are available at highlighted performances. The lowest price for regular tickets is £28, and there is an option to show a discount percentage.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "Moulin Rouge! The Musical",
-                        "body": "Great value seats now from £28.",
-                        "inAppMessage": "Moulin Rouge! The Musical: Great value seats now from £28.",
-                        "usage": {
-                          "prompt_tokens": 904,
-                          "completion_tokens": 127,
-                          "total_tokens": 1031
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches lowPriceForRegularTickets and canShowDiscountPercentage is true.",
-                        "usage": {
-                          "prompt_tokens": 318,
-                          "completion_tokens": 16,
-                          "total_tokens": 334
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Moulin Rouge! The Musical",
-                        "body": "Check out great value seats from £28.",
-                        "inAppMessage": "Moulin Rouge! The Musical: Great value seats from £28.",
-                        "usage": {
-                          "prompt_tokens": 904,
-                          "completion_tokens": 120,
-                          "total_tokens": 1024
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches lowPriceForRegularTickets and canShowDiscountPercentage is true.",
-                        "usage": {
-                          "prompt_tokens": 319,
-                          "completion_tokens": 16,
-                          "total_tokens": 335
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Moulin Rouge! The Musical",
-                        "body": "Great value seats now from £28.",
-                        "inAppMessage": "Moulin Rouge! Great value seats now from £28",
-                        "usage": {
-                          "prompt_tokens": 904,
-                          "completion_tokens": 116,
-                          "total_tokens": 1020
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: All numbers and details match source data.",
-                        "usage": {
-                          "prompt_tokens": 318,
-                          "completion_tokens": 10,
-                          "total_tokens": 328
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a basic case, SIX with low price drop",
-                  "testDescription": "The show \"SIX\" has a new lowest price of $59 which is a $20 reduction. It also has a new max discount percent of 39% up from no max discount percent. The max discount percent has a promotion tied to it \"Exclusive discount for TodayTix only\".",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "SIX",
-                        "body": "Get tickets now at a new low price of $59.",
-                        "inAppMessage": "SIX tickets now from $59.",
-                        "usage": {
-                          "prompt_tokens": 943,
-                          "completion_tokens": 114,
-                          "total_tokens": 1057
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches lowPriceForRegularTickets and canShowDiscountPercentage is true.",
-                        "usage": {
-                          "prompt_tokens": 353,
-                          "completion_tokens": 16,
-                          "total_tokens": 369
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "SIX",
-                        "body": "Get tickets now at a new low price of $59.",
-                        "inAppMessage": "SIX now just $59 grab your tix",
-                        "usage": {
-                          "prompt_tokens": 943,
-                          "completion_tokens": 110,
-                          "total_tokens": 1053
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match source data, % shown correctly.",
-                        "usage": {
-                          "prompt_tokens": 353,
-                          "completion_tokens": 11,
-                          "total_tokens": 364
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "SIX",
-                        "body": "Get tickets now at a new low price of $59.",
-                        "inAppMessage": "SIX Get tickets now at a new low price of $59.",
-                        "usage": {
-                          "prompt_tokens": 943,
-                          "completion_tokens": 122,
-                          "total_tokens": 1065
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match source data, % symbol correctly shown.",
-                        "usage": {
-                          "prompt_tokens": 353,
-                          "completion_tokens": 12,
-                          "total_tokens": 365
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a last call show alert for a show that has announced closure",
-                  "testDescription": "The show \"Wicked\" is announcing its closing on January 1, 2026, after starting on October 30, 2003, in the US. Regular ticket prices start at $50, and there is a possibility of showing a discount percentage.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "Wicked",
-                        "body": "Catch Wicked before it closes! Get tickets from $50.",
-                        "inAppMessage": "Wicked is closing soon. Tickets from $50.",
-                        "usage": {
-                          "prompt_tokens": 896,
-                          "completion_tokens": 119,
-                          "total_tokens": 1015
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches lowPriceForRegularTickets and no % symbol shown.",
-                        "usage": {
-                          "prompt_tokens": 306,
-                          "completion_tokens": 14,
-                          "total_tokens": 320
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Wicked",
-                        "body": "Don't miss out, Wicked closing Jan 1!",
-                        "inAppMessage": "Wicked is closing Jan 1. Tix from $50.",
-                        "usage": {
-                          "prompt_tokens": 896,
-                          "completion_tokens": 108,
-                          "total_tokens": 1004
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches show name and closing date.",
-                        "usage": {
-                          "prompt_tokens": 304,
-                          "completion_tokens": 9,
-                          "total_tokens": 313
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Wicked",
-                        "body": "Don't miss out! Wicked will be closing on January 1.",
-                        "inAppMessage": "Wicked closing on January 1. Get tickets now from $50.",
-                        "usage": {
-                          "prompt_tokens": 896,
-                          "completion_tokens": 120,
-                          "total_tokens": 1016
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches show name and closing date. No price or % mentioned.",
-                        "usage": {
-                          "prompt_tokens": 307,
-                          "completion_tokens": 15,
-                          "total_tokens": 322
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a case where max discount percentage is the same as the diff",
-                  "testDescription": "changes: lowestPrice 15, diff of 8 and no promotion, maxDiscountPercentage 39% diff is 39",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "The Play That Goes Wrong",
-                        "body": "Get tickets now at a new low price of £15.",
-                        "inAppMessage": "The Play That Goes Wrong now £15 tix",
-                        "usage": {
-                          "prompt_tokens": 950,
-                          "completion_tokens": 125,
-                          "total_tokens": 1075
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches low price £15, % symbol allowed",
-                        "usage": {
-                          "prompt_tokens": 366,
-                          "completion_tokens": 11,
-                          "total_tokens": 377
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "The Play That Goes Wrong",
-                        "body": "Get tickets now at a new low price of £15.",
-                        "inAppMessage": "The Play That Goes Wrong from £15.",
-                        "usage": {
-                          "prompt_tokens": 950,
-                          "completion_tokens": 103,
-                          "total_tokens": 1053
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches low price £15 and can show discount percentage.",
-                        "usage": {
-                          "prompt_tokens": 366,
-                          "completion_tokens": 13,
-                          "total_tokens": 379
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "The Play That Goes Wrong",
-                        "body": "Get tickets now at a new low price of £15.",
-                        "inAppMessage": "The Play That Goes Wrong tix at £15 now.",
-                        "usage": {
-                          "prompt_tokens": 950,
-                          "completion_tokens": 120,
-                          "total_tokens": 1070
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches lowPriceForRegularTickets £15, canShowDiscountPercentage is true.",
-                        "usage": {
-                          "prompt_tokens": 366,
-                          "completion_tokens": 18,
-                          "total_tokens": 384
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test uk case where there is a promotion and a price change",
-                  "testDescription": "The show \"The Lehman Trilogy\" now has a new lowest price for regular tickets at £23, which is a £5 reduction. There is an exclusive pricing promotion with highlighted dates offering TodayTix exclusive prices.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "The Lehman Trilogy",
-                        "body": "Tickets now available from £23. Exclusive pricing for select dates.",
-                        "inAppMessage": "The Lehman Trilogy: Tickets now from £23.",
-                        "usage": {
-                          "prompt_tokens": 952,
-                          "completion_tokens": 110,
-                          "total_tokens": 1062
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches low price £23 and mentions exclusive pricing.",
-                        "usage": {
-                          "prompt_tokens": 368,
-                          "completion_tokens": 12,
-                          "total_tokens": 380
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "The Lehman Trilogy",
-                        "body": "Get tickets now at a new low price of £23.",
-                        "inAppMessage": "The Lehman Trilogy tix now £23.",
-                        "usage": {
-                          "prompt_tokens": 952,
-                          "completion_tokens": 109,
-                          "total_tokens": 1061
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches low price £23 and no % symbol shown.",
-                        "usage": {
-                          "prompt_tokens": 367,
-                          "completion_tokens": 13,
-                          "total_tokens": 380
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "The Lehman Trilogy",
-                        "body": "Get tickets now at a new low price of £23.",
-                        "inAppMessage": "The Lehman Trilogy now from £23.",
-                        "usage": {
-                          "prompt_tokens": 952,
-                          "completion_tokens": 109,
-                          "total_tokens": 1061
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Numbers match source data, and % symbol is not shown.",
-                        "usage": {
-                          "prompt_tokens": 367,
-                          "completion_tokens": 14,
-                          "total_tokens": 381
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "PASS",
-                    "hallucinations_detected": 0,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test uk case where there is a promotion only, mousetrap",
-                  "testDescription": "The show \"The Mousetrap\" has regular ticket prices starting at £28. A promotion titled \"Tix Selling Fast\" has been added, indicating that tickets are selling quickly, with the lowest price point for this promotion being £35.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "The Mousetrap",
-                        "body": "Tix selling fast! Get tickets now from £28.",
-                        "inAppMessage": "The Mousetrap: Tix selling fast from £28",
-                        "usage": {
-                          "prompt_tokens": 899,
-                          "completion_tokens": 115,
-                          "total_tokens": 1014
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Price matches lowPriceForRegularTickets £28.",
-                        "usage": {
-                          "prompt_tokens": 314,
-                          "completion_tokens": 12,
-                          "total_tokens": 326
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "The Mousetrap",
-                        "body": "Tix selling fast! Get tickets from £35 now.",
-                        "inAppMessage": "The Mousetrap tix selling fast! Starting at £35.",
-                        "usage": {
-                          "prompt_tokens": 899,
-                          "completion_tokens": 119,
-                          "total_tokens": 1018
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "HALLUCINATION: Push claims £35, JSON lists £28 as low price.",
-                        "usage": {
-                          "prompt_tokens": 314,
-                          "completion_tokens": 18,
-                          "total_tokens": 332
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "The Mousetrap",
-                        "body": "New promotion: Tix selling fast from £35.",
-                        "inAppMessage": "The Mousetrap: Tix selling fast from £35.",
-                        "usage": {
-                          "prompt_tokens": 899,
-                          "completion_tokens": 113,
-                          "total_tokens": 1012
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "HALLUCINATION: Price should be £28, not £35.",
-                        "usage": {
-                          "prompt_tokens": 313,
-                          "completion_tokens": 15,
-                          "total_tokens": 328
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "FAIL",
-                    "hallucinations_detected": 2,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test uk case where there is a promotion and a discount % change",
-                  "testDescription": "The show \"Why Am I So Single?\" offers regular tickets starting at £25. A new promotion has been introduced, allowing a maximum discount of 40%, which is an increase of 7% from the previous maximum discount. Additionally, there is a special offer with the lowest price point set at £30. These promotions are targeted at Gold Members.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "Why Am I So Single?",
-                        "body": "Special offer for Gold Members! Get tickets from £30.",
-                        "inAppMessage": "Why Am I So Single? Special offer for Gold Members!",
-                        "usage": {
-                          "prompt_tokens": 938,
-                          "completion_tokens": 116,
-                          "total_tokens": 1054
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "HALLUCINATION: Push mentions £30, not matching any provided price data.",
-                        "usage": {
-                          "prompt_tokens": 354,
-                          "completion_tokens": 17,
-                          "total_tokens": 371
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Why Am I So Single?",
-                        "body": "Gold Member tix now from £25 with our Special offer.",
-                        "inAppMessage": "Why Am I So Single? Gold Member tix now from £25.",
-                        "usage": {
-                          "prompt_tokens": 938,
-                          "completion_tokens": 120,
-                          "total_tokens": 1058
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: £25 matches lowPriceForRegularTickets and no % symbol shown.",
-                        "usage": {
-                          "prompt_tokens": 355,
-                          "completion_tokens": 16,
-                          "total_tokens": 371
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Why Am I So Single?",
-                        "body": "Gold Members: Special offer tix now live.",
-                        "inAppMessage": "Why Am I So Single? Gold Members, special offer tix live.",
-                        "usage": {
-                          "prompt_tokens": 938,
-                          "completion_tokens": 116,
-                          "total_tokens": 1054
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "HALLUCINATION: No % symbol shown despite canShowDiscountPercentage=true",
-                        "usage": {
-                          "prompt_tokens": 349,
-                          "completion_tokens": 15,
-                          "total_tokens": 364
-                        }
-                      }
-                    }
-                  ],
-                  "hallucination_summary": {
-                    "status": "FAIL",
-                    "hallucinations_detected": 2,
-                    "total_iterations": 3
-                  }
-                },
-                {
-                  "testName": "test a basic case of promotion only",
-                  "testDescription": "The show \"Six\" has regular ticket prices starting at $59. A promotion titled \"Hot deal\" has been added, highlighting dates with special offers. The promotion includes a lowest price point of $59, a maximum discount amount of $22, and a maximum discount percentage of 45%.",
-                  "iterations": [
-                    {
-                      "primaryAgent": {
-                        "title": "Six",
-                        "body": "Catch Six with our Hot deal. Tix start at $59!",
-                        "inAppMessage": "Six: Catch it with our Hot deal, starting at $59",
-                        "usage": {
-                          "prompt_tokens": 972,
-                          "completion_tokens": 113,
-                          "total_tokens": 1085
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: All numbers match source data, % symbol not required.",
-                        "usage": {
-                          "prompt_tokens": 383,
-                          "completion_tokens": 13,
-                          "total_tokens": 396
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Six",
-                        "body": "Hot deal: highlighted offers on Six.",
-                        "inAppMessage": "Six tix hot deal! Check now.",
-                        "usage": {
-                          "prompt_tokens": 972,
-                          "completion_tokens": 101,
-                          "total_tokens": 1073
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "VALID: Matches data, % symbol allowed, no extra claims",
-                        "usage": {
-                          "prompt_tokens": 377,
-                          "completion_tokens": 12,
-                          "total_tokens": 389
-                        }
-                      }
-                    },
-                    {
-                      "primaryAgent": {
-                        "title": "Six",
-                        "body": "Hot deal: new offers on select dates.",
-                        "inAppMessage": "Six: Hot deal offers available now.",
-                        "usage": {
-                          "prompt_tokens": 972,
-                          "completion_tokens": 94,
-                          "total_tokens": 1066
-                        }
-                      },
-                      "evaluatorAgent": {
-                        "response": "HALLUCINATION: Missing % symbol despite canShowDiscountPercentage=true",
-                        "usage": {
-                          "prompt_tokens": 378,
-                          "completion_tokens": 14,
-                          "total_tokens": 392
-                        }
-                      }
-                    }
-                  ]
-                }
-            ]
+            "results":[
+    {
+      "testName": "test a case where low price has not changed but max discount percentage has",
+      "testDescription": "The push notification is regarding the show \"Back to the Future,\" where regular tickets are priced as low as $63. A new maximum discount percentage of 29% has been introduced.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "Back to the Future",
+            "body": "Get tix now from $63 while inventory lasts.",
+            "inAppMessage": "Back to the Future tix from $63!",
+            "usage": {
+              "prompt_tokens": 916,
+              "completion_tokens": 110,
+              "total_tokens": 1026
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match and % symbol not shown.",
+            "usage": {
+              "prompt_tokens": 308,
+              "completion_tokens": 10,
+              "total_tokens": 318
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Back to the Future",
+            "body": "Get tickets now from $63.",
+            "inAppMessage": "Back to the Future: Tix from $63.",
+            "usage": {
+              "prompt_tokens": 916,
+              "completion_tokens": 105,
+              "total_tokens": 1021
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match source data, % not required.",
+            "usage": {
+              "prompt_tokens": 304,
+              "completion_tokens": 11,
+              "total_tokens": 315
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Back to the Future",
+            "body": "Get tickets now from $63.",
+            "inAppMessage": "Back to the Future - low price tix $63.",
+            "usage": {
+              "prompt_tokens": 916,
+              "completion_tokens": 113,
+              "total_tokens": 1029
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match source data, % not required.",
+            "usage": {
+              "prompt_tokens": 304,
+              "completion_tokens": 11,
+              "total_tokens": 315
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test NYC case where there is a promotion, max discount amount and low price",
+      "testDescription": "The show \"MJ The Musical\" has a promotion titled \"Cyber Sale\" offering limited-time savings. The new lowest price for regular tickets is $89, with a $5 decrease from the previous price. The maximum discount amount available is $25, which is a $7 increase from before. The promotion includes a maximum discount percentage of 30%.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "MJ The Musical",
+            "body": "Cyber Sale: limited time savings on MJ The Musical tickets from $89.",
+            "inAppMessage": "MJ The Musical: Cyber Sale tickets from $89",
+            "usage": {
+              "prompt_tokens": 1078,
+              "completion_tokens": 114,
+              "total_tokens": 1192
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match and % symbol is allowed.",
+            "usage": {
+              "prompt_tokens": 473,
+              "completion_tokens": 10,
+              "total_tokens": 483
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "MJ The Musical",
+            "body": "Cyber Sale tix now from $89.",
+            "inAppMessage": "MJ The Musical Cyber Sale tix now from $89",
+            "usage": {
+              "prompt_tokens": 1078,
+              "completion_tokens": 114,
+              "total_tokens": 1192
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches lowPriceForRegularTickets and canShowDiscountPercentage=true.",
+            "usage": {
+              "prompt_tokens": 467,
+              "completion_tokens": 15,
+              "total_tokens": 482
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "MJ The Musical",
+            "body": "Tickets from $89 for Cyber Sale.",
+            "inAppMessage": "MJ The Musical tix from $89 for Cyber Sale.",
+            "usage": {
+              "prompt_tokens": 1078,
+              "completion_tokens": 107,
+              "total_tokens": 1185
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match source data, % symbol not required.",
+            "usage": {
+              "prompt_tokens": 466,
+              "completion_tokens": 12,
+              "total_tokens": 478
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test a case where a show has breaking news",
+      "testDescription": "\"Harry Potter and the Cursed Child\" will debut a new version on Broadway at the Lyric Theatre starting November 12. The play, which originally opened in New York in 2018 as a two-part, five-hour production, was revised in 2021 to a one-part, 3.5-hour show. The upcoming 2024 version will run under three hours, including one intermission. The new cast includes Matthew James Thomas as Harry Potter, Sarah Killough as Ginny Potter, and Alex Serino as Albus Potter, among others. The story, written by Jack Thorne and based on an original story by Thorne, J.K. Rowling, and John Tiffany, follows Albus Potter and Scorpius Malfoy on a time-traveling adventure. Regular ticket prices start at $63.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "Harry Potter and the Cursed Child",
+            "body": "Experience a fresh take on a magical classic. Starting Nov 12, now under 3 hours.",
+            "inAppMessage": "Harry Potter and the Cursed Child new version debuts Nov 12",
+            "usage": {
+              "prompt_tokens": 1459,
+              "completion_tokens": 134,
+              "total_tokens": 1593
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches show data, no % symbol shown.",
+            "usage": {
+              "prompt_tokens": 863,
+              "completion_tokens": 11,
+              "total_tokens": 874
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Harry Potter and the Cursed Child",
+            "body": "Catch the new version debuting Nov 12 at the Lyric Theatre.",
+            "inAppMessage": "Harry Potter and the Cursed Child now under 3 hrs on Nov 12",
+            "usage": {
+              "prompt_tokens": 1459,
+              "completion_tokens": 130,
+              "total_tokens": 1589
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches show name and debut date. No % symbol shown.",
+            "usage": {
+              "prompt_tokens": 858,
+              "completion_tokens": 14,
+              "total_tokens": 872
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Harry Potter and the Cursed Child",
+            "body": "A new version debuts on Broadway from Nov 12.",
+            "inAppMessage": "Harry Potter and the Cursed Child new version on Broadway Nov 12.",
+            "usage": {
+              "prompt_tokens": 1459,
+              "completion_tokens": 137,
+              "total_tokens": 1596
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: No numbers or % symbols to verify.",
+            "usage": {
+              "prompt_tokens": 855,
+              "completion_tokens": 10,
+              "total_tokens": 865
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test a case where low price has not changed but max discount percentage has",
+      "testDescription": "The show \"& Juliet\" has a low price for regular tickets set at $63. The maximum discount amount has increased by $22, bringing it to a new total of $85. Additionally, the maximum discount percentage has increased by 10%, now reaching 66%.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "& Juliet",
+            "body": "Tickets now at a new low price of $63.",
+            "inAppMessage": "& Juliet tix at new low price of $63",
+            "usage": {
+              "prompt_tokens": 951,
+              "completion_tokens": 105,
+              "total_tokens": 1056
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Low price matches source data, no % shown.",
+            "usage": {
+              "prompt_tokens": 340,
+              "completion_tokens": 12,
+              "total_tokens": 352
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "& Juliet",
+            "body": "Tickets now available from $63.",
+            "inAppMessage": "& Juliet tickets now from $63",
+            "usage": {
+              "prompt_tokens": 951,
+              "completion_tokens": 97,
+              "total_tokens": 1048
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches lowPriceForRegularTickets and no % symbol shown.",
+            "usage": {
+              "prompt_tokens": 336,
+              "completion_tokens": 14,
+              "total_tokens": 350
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "& Juliet",
+            "body": "Get tix now from $63.",
+            "inAppMessage": "& Juliet tix now from $63.",
+            "usage": {
+              "prompt_tokens": 951,
+              "completion_tokens": 100,
+              "total_tokens": 1051
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Price matches lowPriceForRegularTickets, no % symbol shown.",
+            "usage": {
+              "prompt_tokens": 337,
+              "completion_tokens": 15,
+              "total_tokens": 352
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test a case where a show has breaking news about a cast change",
+      "testDescription": "Adam Lambert and Auli'i Cravalho will join the Broadway cast of \"Cabaret\" starting September 16 at the August Wilson Theatre. Lambert, known for his role as the runner-up on American Idol and his collaboration with Queen, will play the Emcee. Cravalho, famous for voicing Moana and starring in the film adaptation of \"Mean Girls,\" will portray Sally Bowles. They replace Eddie Redmayne and Gayle Rankin, who originated these roles in the Tony Award-nominated revival, through September 14. Lambert and Cravalho will perform until March 30, 2025. The cast also features Bebe Neuwirth, Steven Skybell, Ato Blankson-Wood, Natascia Diaz, and Henry Gottfried. The musical, set in 1930s Berlin, is directed by Rebecca Frecknall and offers a semi-immersive experience at the Kit Kat Club. Regular ticket prices start at $63.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "Cabaret",
+            "body": "Adam Lambert & Auli'i Cravalho join Cabaret Broadway cast!",
+            "inAppMessage": "Cabaret: Adam Lambert & Auli'i Cravalho join cast. Get tix now!",
+            "usage": {
+              "prompt_tokens": 1589,
+              "completion_tokens": 137,
+              "total_tokens": 1726
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Push notification matches article headline.",
+            "usage": {
+              "prompt_tokens": 983,
+              "completion_tokens": 8,
+              "total_tokens": 991
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Cabaret",
+            "body": "Adam Lambert and Auli'i Cravalho join Cabaret Broadway cast starting Sep 16.",
+            "inAppMessage": "Cabaret: Lambert & Cravalho join Broadway Sep 16.",
+            "usage": {
+              "prompt_tokens": 1589,
+              "completion_tokens": 133,
+              "total_tokens": 1722
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: No % symbol shown; matches show data and article details.",
+            "usage": {
+              "prompt_tokens": 987,
+              "completion_tokens": 14,
+              "total_tokens": 1001
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Cabaret",
+            "body": "Adam Lambert & Auli'i Cravalho join Cabaret starting Sep 16!",
+            "inAppMessage": "Cabaret: Adam Lambert & Auli'i Cravalho join the cast Sep 16!",
+            "usage": {
+              "prompt_tokens": 1589,
+              "completion_tokens": 136,
+              "total_tokens": 1725
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches show name and cast update details.",
+            "usage": {
+              "prompt_tokens": 985,
+              "completion_tokens": 10,
+              "total_tokens": 995
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test a last call show alert for a show closing soon",
+      "testDescription": "The show \"Wicked\" is closing soon, on January 1, 2026, after starting on October 30, 2003, in the US. Regular ticket prices start at $50, and there is a possibility of showing a discount percentage.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "Wicked",
+            "body": "Don't miss out, Wicked is closing soon. Get tickets from $50.",
+            "inAppMessage": "Wicked closing soon, tickets from $50.",
+            "usage": {
+              "prompt_tokens": 914,
+              "completion_tokens": 113,
+              "total_tokens": 1027
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: All numbers match source data, and % symbol is not shown.",
+            "usage": {
+              "prompt_tokens": 308,
+              "completion_tokens": 15,
+              "total_tokens": 323
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Wicked",
+            "body": "Don't miss out, Wicked closes Jan 1!",
+            "inAppMessage": "Wicked: Don't miss out, closes Jan 1!",
+            "usage": {
+              "prompt_tokens": 914,
+              "completion_tokens": 106,
+              "total_tokens": 1020
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches closing date, no % symbol used.",
+            "usage": {
+              "prompt_tokens": 303,
+              "completion_tokens": 11,
+              "total_tokens": 314
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Wicked",
+            "body": "Catch Wicked before it closes on Jan 1. Tickets from $50.",
+            "inAppMessage": "Wicked closing Jan 1 tickets from $50",
+            "usage": {
+              "prompt_tokens": 914,
+              "completion_tokens": 97,
+              "total_tokens": 1011
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match and % symbol not used.",
+            "usage": {
+              "prompt_tokens": 308,
+              "completion_tokens": 10,
+              "total_tokens": 318
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test uk case where there is a promotion only",
+      "testDescription": "changes: promotion added (pay no fees), nothing else changes",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "Musicals by Candlelight: Andrew Lloyd Webber",
+            "body": "Enjoy 'Pay No Fees' on tickets from £15.",
+            "inAppMessage": "Musicals by Candlelight: Andrew Lloyd Webber. Pay No Fees on tickets from £15.",
+            "usage": {
+              "prompt_tokens": 922,
+              "completion_tokens": 142,
+              "total_tokens": 1064
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: All numbers and details match source data.",
+            "usage": {
+              "prompt_tokens": 324,
+              "completion_tokens": 10,
+              "total_tokens": 334
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Musicals by Candlelight",
+            "body": "Pay no fees on tickets from £15.",
+            "inAppMessage": "Musicals by Candlelight: Pay no fees on tickets from £15.",
+            "usage": {
+              "prompt_tokens": 922,
+              "completion_tokens": 115,
+              "total_tokens": 1037
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: All numbers and claims match source data.",
+            "usage": {
+              "prompt_tokens": 316,
+              "completion_tokens": 10,
+              "total_tokens": 326
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Musicals by Candlelight: Andrew Lloyd Webber",
+            "body": "Pay no fees on tickets from £15.",
+            "inAppMessage": "Musicals by Candlelight: Pay no fees on tickets from £15.",
+            "usage": {
+              "prompt_tokens": 922,
+              "completion_tokens": 130,
+              "total_tokens": 1052
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers and promotion match source data.",
+            "usage": {
+              "prompt_tokens": 321,
+              "completion_tokens": 9,
+              "total_tokens": 330
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test a case where max discount percent changed, nothing else",
+      "testDescription": "The show \"& Juliet\" has regular tickets starting at $59. There is a new maximum discount percentage of 71%, which is an increase of 8%.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "& Juliet",
+            "body": "Get tickets now from $59 while supplies last.",
+            "inAppMessage": "& Juliet tickets now from $59",
+            "usage": {
+              "prompt_tokens": 917,
+              "completion_tokens": 97,
+              "total_tokens": 1014
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Price matches lowPriceForRegularTickets, % not needed.",
+            "usage": {
+              "prompt_tokens": 305,
+              "completion_tokens": 14,
+              "total_tokens": 319
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "& Juliet",
+            "body": "Get tickets now from $59.",
+            "inAppMessage": "& Juliet tickets now from $59",
+            "usage": {
+              "prompt_tokens": 917,
+              "completion_tokens": 95,
+              "total_tokens": 1012
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: All numbers match source data, % symbol not required.",
+            "usage": {
+              "prompt_tokens": 302,
+              "completion_tokens": 13,
+              "total_tokens": 315
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "& Juliet",
+            "body": "Get tickets now starting at $59.",
+            "inAppMessage": "& Juliet tickets now from $59",
+            "usage": {
+              "prompt_tokens": 917,
+              "completion_tokens": 103,
+              "total_tokens": 1020
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches lowPriceForRegularTickets and canShowDiscountPercentage is true.",
+            "usage": {
+              "prompt_tokens": 303,
+              "completion_tokens": 16,
+              "total_tokens": 319
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test a case where low price has changed slightly but there is a promotion",
+      "testDescription": "The show \"The Hills of California\" has a new lowest ticket price of $50, which is a $3 decrease. There is a \"24 Hour\" promotion with a \"24-hour offer\" message. This promotion is targeted at Gold members.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "The Hills of California",
+            "body": "Gold members: Get tix now at $50 with our 24-hour offer!",
+            "inAppMessage": "The Hills of California $50 tix for Gold members 24-hour offer",
+            "usage": {
+              "prompt_tokens": 922,
+              "completion_tokens": 132,
+              "total_tokens": 1054
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: All numbers match source data, % symbol not shown.",
+            "usage": {
+              "prompt_tokens": 320,
+              "completion_tokens": 13,
+              "total_tokens": 333
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "The Hills of California",
+            "body": "Gold members, new tix at $50 with 24-hour offer!",
+            "inAppMessage": "The Hills of California: Gold members, $50 with 24-hour offer",
+            "usage": {
+              "prompt_tokens": 922,
+              "completion_tokens": 125,
+              "total_tokens": 1047
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches lowPriceForRegularTickets and no % symbol shown.",
+            "usage": {
+              "prompt_tokens": 318,
+              "completion_tokens": 14,
+              "total_tokens": 332
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "The Hills of California",
+            "body": "Gold members, grab your tix now for $50.",
+            "inAppMessage": "The Hills of California tix now $50 for Gold members.",
+            "usage": {
+              "prompt_tokens": 922,
+              "completion_tokens": 117,
+              "total_tokens": 1039
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: All numbers match source data, and % symbol is not used.",
+            "usage": {
+              "prompt_tokens": 315,
+              "completion_tokens": 15,
+              "total_tokens": 330
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test uk case where there is a promotion only",
+      "testDescription": "\"Moulin Rouge! The Musical\" has a promotion titled \"Great value seats\" with a message indicating that these seats are available at highlighted performances. The lowest price for regular tickets is £28, and there is an option to show a discount percentage.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "Moulin Rouge! The Musical",
+            "body": "Great value seats now from £28.",
+            "inAppMessage": "Moulin Rouge! The Musical: great value seats from £28.",
+            "usage": {
+              "prompt_tokens": 923,
+              "completion_tokens": 119,
+              "total_tokens": 1042
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match and % symbol is not shown.",
+            "usage": {
+              "prompt_tokens": 318,
+              "completion_tokens": 11,
+              "total_tokens": 329
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Moulin Rouge! The Musical",
+            "body": "Great value seats from £28 now available.",
+            "inAppMessage": "Moulin Rouge! The Musical great value seats are here from £28.",
+            "usage": {
+              "prompt_tokens": 923,
+              "completion_tokens": 122,
+              "total_tokens": 1045
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match and % symbol allowed.",
+            "usage": {
+              "prompt_tokens": 319,
+              "completion_tokens": 9,
+              "total_tokens": 328
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Moulin Rouge! The Musical",
+            "body": "Great value seats available from £28.",
+            "inAppMessage": "Moulin Rouge! The Musical: great seats from £28",
+            "usage": {
+              "prompt_tokens": 923,
+              "completion_tokens": 120,
+              "total_tokens": 1043
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches low price £28 and can show discount percentage.",
+            "usage": {
+              "prompt_tokens": 318,
+              "completion_tokens": 13,
+              "total_tokens": 331
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test a last call show alert for a show that has announced closure",
+      "testDescription": "The show \"Wicked\" is announcing its closing on January 1, 2026, after starting on October 30, 2003, in the US. Regular ticket prices start at $50, and there is a possibility of showing a discount percentage.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "Wicked",
+            "body": "Final chance to see Wicked before it closes on January 1.",
+            "inAppMessage": "Wicked is closing soon. Last chance for tickets!",
+            "usage": {
+              "prompt_tokens": 915,
+              "completion_tokens": 109,
+              "total_tokens": 1024
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches closing date and no % symbol needed",
+            "usage": {
+              "prompt_tokens": 307,
+              "completion_tokens": 10,
+              "total_tokens": 317
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Wicked",
+            "body": "Wicked announces its closing, catch it before Jan 1 2026!",
+            "inAppMessage": "Wicked announces its closing, catch it before Jan 1 2026!",
+            "usage": {
+              "prompt_tokens": 915,
+              "completion_tokens": 130,
+              "total_tokens": 1045
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Closing date matches source data.",
+            "usage": {
+              "prompt_tokens": 310,
+              "completion_tokens": 8,
+              "total_tokens": 318
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Wicked",
+            "body": "Final curtain call. Don't miss it!",
+            "inAppMessage": "Wicked: Final curtain call. Don't miss it!",
+            "usage": {
+              "prompt_tokens": 915,
+              "completion_tokens": 102,
+              "total_tokens": 1017
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: No numbers or % symbols in push notification.",
+            "usage": {
+              "prompt_tokens": 302,
+              "completion_tokens": 11,
+              "total_tokens": 313
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test a case where max discount percentage is the same as the diff",
+      "testDescription": "changes: lowestPrice 15, diff of 8 and no promotion, maxDiscountPercentage 39% diff is 39",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "The Play That Goes Wrong",
+            "body": "Get tickets now at a new low price of £15.",
+            "inAppMessage": "The Play That Goes Wrong tickets now £15.",
+            "usage": {
+              "prompt_tokens": 969,
+              "completion_tokens": 112,
+              "total_tokens": 1081
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches lowPriceForRegularTickets and canShowDiscountPercentage=true.",
+            "usage": {
+              "prompt_tokens": 366,
+              "completion_tokens": 15,
+              "total_tokens": 381
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "The Play That Goes Wrong",
+            "body": "Get tickets now at a new low price of £15.",
+            "inAppMessage": "The Play That Goes Wrong tickets now £15",
+            "usage": {
+              "prompt_tokens": 969,
+              "completion_tokens": 110,
+              "total_tokens": 1079
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches low price of £15 and can show discount percentage.",
+            "usage": {
+              "prompt_tokens": 366,
+              "completion_tokens": 14,
+              "total_tokens": 380
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "The Play That Goes Wrong",
+            "body": "Get tickets now at a new low price of £15.",
+            "inAppMessage": "The Play That Goes Wrong now at £15.",
+            "usage": {
+              "prompt_tokens": 969,
+              "completion_tokens": 123,
+              "total_tokens": 1092
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match source data and % symbol is not used.",
+            "usage": {
+              "prompt_tokens": 366,
+              "completion_tokens": 13,
+              "total_tokens": 379
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test uk case where there is a promotion and a price change",
+      "testDescription": "The show \"The Lehman Trilogy\" now has a new lowest price for regular tickets at £23, which is a £5 reduction. There is an exclusive pricing promotion with highlighted dates offering TodayTix exclusive prices.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "The Lehman Trilogy",
+            "body": "Exclusive pricing from £23. See highlighted dates.",
+            "inAppMessage": "The Lehman Trilogy: exclusive pricing from £23.",
+            "usage": {
+              "prompt_tokens": 971,
+              "completion_tokens": 107,
+              "total_tokens": 1078
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches low price £23, no % symbol shown.",
+            "usage": {
+              "prompt_tokens": 365,
+              "completion_tokens": 13,
+              "total_tokens": 378
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "The Lehman Trilogy",
+            "body": "Tickets now available from £23.",
+            "inAppMessage": "The Lehman Trilogy tix from £23.",
+            "usage": {
+              "prompt_tokens": 971,
+              "completion_tokens": 104,
+              "total_tokens": 1075
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match source data, and % symbol is not shown.",
+            "usage": {
+              "prompt_tokens": 362,
+              "completion_tokens": 14,
+              "total_tokens": 376
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "The Lehman Trilogy",
+            "body": "TodayTix exclusive pricing from £23.",
+            "inAppMessage": "The Lehman Trilogy: TodayTix exclusive pricing from £23.",
+            "usage": {
+              "prompt_tokens": 971,
+              "completion_tokens": 114,
+              "total_tokens": 1085
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match source data, % symbol not shown.",
+            "usage": {
+              "prompt_tokens": 364,
+              "completion_tokens": 12,
+              "total_tokens": 376
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test uk case where there is a promotion only, mousetrap",
+      "testDescription": "The show \"The Mousetrap\" has regular ticket prices starting at £28. A promotion titled \"Tix Selling Fast\" has been added, indicating that tickets are selling quickly, with the lowest price point for this promotion being £35.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "The Mousetrap",
+            "body": "Get tix now from £28. Don't miss out!",
+            "inAppMessage": "The Mousetrap: Tix now from £28.",
+            "usage": {
+              "prompt_tokens": 918,
+              "completion_tokens": 111,
+              "total_tokens": 1029
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches lowPriceForRegularTickets and canShowDiscountPercentage is true.",
+            "usage": {
+              "prompt_tokens": 314,
+              "completion_tokens": 16,
+              "total_tokens": 330
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "The Mousetrap",
+            "body": "Tix selling fast! Get tickets now from £28.",
+            "inAppMessage": "The Mousetrap tix selling fast from £28.",
+            "usage": {
+              "prompt_tokens": 918,
+              "completion_tokens": 117,
+              "total_tokens": 1035
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Numbers match and % symbol not shown.",
+            "usage": {
+              "prompt_tokens": 314,
+              "completion_tokens": 10,
+              "total_tokens": 324
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "The Mousetrap",
+            "body": "Get tickets from £28. Tix selling fast!",
+            "inAppMessage": "The Mousetrap from £28. Tix selling fast!",
+            "usage": {
+              "prompt_tokens": 918,
+              "completion_tokens": 115,
+              "total_tokens": 1033
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches low price £28 and no % symbol shown.",
+            "usage": {
+              "prompt_tokens": 313,
+              "completion_tokens": 13,
+              "total_tokens": 326
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "PASS",
+        "hallucinations_detected": 0,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test uk case where there is a promotion and a discount % change",
+      "testDescription": "The show \"Why Am I So Single?\" offers regular tickets starting at £25. A new promotion has been introduced, allowing a maximum discount of 40%, which is an increase of 7% from the previous maximum discount. Additionally, there is a special offer with the lowest price point set at £30. These promotions are targeted at Gold Members.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "Why Am I So Single?",
+            "body": "Special offer for Gold Members with tix from £30.",
+            "inAppMessage": "Why Am I So Single? special offer for Gold Members!",
+            "usage": {
+              "prompt_tokens": 957,
+              "completion_tokens": 117,
+              "total_tokens": 1074
+            }
+          },
+          "evaluatorAgent": {
+            "response": "HALLUCINATION: Price should be £25, not £30.",
+            "usage": {
+              "prompt_tokens": 354,
+              "completion_tokens": 15,
+              "total_tokens": 369
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Why Am I So Single?",
+            "body": "Gold members, enjoy special offer tix now from £25.",
+            "inAppMessage": "Why Am I So Single? Gold members enjoy now from £25.",
+            "usage": {
+              "prompt_tokens": 957,
+              "completion_tokens": 117,
+              "total_tokens": 1074
+            }
+          },
+          "evaluatorAgent": {
+            "response": "HALLUCINATION: £25 is not the lowest price; it's the regular ticket price.",
+            "usage": {
+              "prompt_tokens": 355,
+              "completion_tokens": 19,
+              "total_tokens": 374
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Why Am I So Single?",
+            "body": "Gold Members' special offer tix from £30.",
+            "inAppMessage": "Why Am I So Single? tix for Gold from £30.",
+            "usage": {
+              "prompt_tokens": 957,
+              "completion_tokens": 112,
+              "total_tokens": 1069
+            }
+          },
+          "evaluatorAgent": {
+            "response": "HALLUCINATION: Price doesn't match lowPriceForRegularTickets (£25)",
+            "usage": {
+              "prompt_tokens": 353,
+              "completion_tokens": 16,
+              "total_tokens": 369
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "FAIL",
+        "hallucinations_detected": 3,
+        "total_iterations": 3
+      }
+    },
+    {
+      "testName": "test a basic case of promotion only",
+      "testDescription": "The show \"Six\" has regular ticket prices starting at $59. A promotion titled \"Hot deal\" has been added, highlighting dates with special offers. The promotion includes a lowest price point of $59, a maximum discount amount of $22, and a maximum discount percentage of 45%.",
+      "iterations": [
+        {
+          "primaryAgent": {
+            "title": "Six",
+            "body": "New Hot deal: see highlighted dates for our hottest offers!",
+            "inAppMessage": "Six Hot deal available! See highlighted dates for offers",
+            "usage": {
+              "prompt_tokens": 991,
+              "completion_tokens": 100,
+              "total_tokens": 1091
+            }
+          },
+          "evaluatorAgent": {
+            "response": "HALLUCINATION: Missing price/discount details in notification.",
+            "usage": {
+              "prompt_tokens": 381,
+              "completion_tokens": 13,
+              "total_tokens": 394
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Six",
+            "body": "Hot deal tix now available from $59. Check highlighted dates for offers.",
+            "inAppMessage": "Six Hot deal tix from $59 avail.",
+            "usage": {
+              "prompt_tokens": 991,
+              "completion_tokens": 107,
+              "total_tokens": 1098
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: All numbers match source data, % not shown.",
+            "usage": {
+              "prompt_tokens": 385,
+              "completion_tokens": 12,
+              "total_tokens": 397
+            }
+          }
+        },
+        {
+          "primaryAgent": {
+            "title": "Six",
+            "body": "Check out the Hot deal! Tix for Six now from $59.",
+            "inAppMessage": "Six Hot deal! Tix now from $59.",
+            "usage": {
+              "prompt_tokens": 991,
+              "completion_tokens": 110,
+              "total_tokens": 1101
+            }
+          },
+          "evaluatorAgent": {
+            "response": "VALID: Matches lowPriceForRegularTickets and canShowDiscountPercentage=true.",
+            "usage": {
+              "prompt_tokens": 384,
+              "completion_tokens": 15,
+              "total_tokens": 399
+            }
+          }
+        }
+      ],
+      "hallucination_summary": {
+        "status": "FAIL",
+        "hallucinations_detected": 1,
+        "total_iterations": 3
+      }
+    }
+  ]
         };
 
         // Load and display the data
